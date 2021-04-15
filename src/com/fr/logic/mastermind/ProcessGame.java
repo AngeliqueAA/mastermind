@@ -29,7 +29,7 @@ public class ProcessGame {
 		Mastermind mastermind = new Mastermind(randomCombinationToFind);
 
 		boolean success = false;
-
+		int numberOfColorToGuess = 3;
 		int gameTurn = 0;
 		int maxTurn = 0;
 
@@ -45,7 +45,8 @@ public class ProcessGame {
 			gameTurn++;
 
 			displaySeparator();
-			for (int index = 0; index < 3; index++) {
+
+			for (int index = 0; index < numberOfColorToGuess; index++) {
 				String colorExplanation = "RED = 0, GREEN = 1, YELLOW = 2, ORANGE = 3, BLUE = 4";
 				System.out.println(colorExplanation);
 				String message = MessageFormat.format("COLOR EMPLACEMENT {0}:", index);
@@ -59,7 +60,8 @@ public class ProcessGame {
 			System.out.println("User selection: " + playerCombination);
 
 			GameResult result = mastermind.playTurn(playerCombination);
-			if (result.getWellPlacedColor() == 3) {
+
+			if (result.getWellPlacedColor() == numberOfColorToGuess) {
 				success = true;
 				displaySeparator();
 				String successMessage = MessageFormat.format("SUCCESS in {0} turn(s)", gameTurn);

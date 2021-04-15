@@ -17,7 +17,6 @@ public class StartGame {
 
 		processGame.game();
 
-		// mastermind.game();
 	}
 
 }
