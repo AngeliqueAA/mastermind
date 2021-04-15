@@ -12,6 +12,7 @@ public class StartGame {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		// Combi
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.BLUE, Color.RED));
 		ProcessGame processGame = new ProcessGame(combinationToFind);
 
