@@ -9,9 +9,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.fr.main.mastermind.Color;
-import com.fr.main.mastermind.GameResult;
-import com.fr.main.mastermind.Mastermind;
+import com.fr.logic.mastermind.GameResult;
+import com.fr.logic.mastermind.Mastermind;
+import com.fr.shared.mastermind.Color;
 
 class MastermindTest {
 
@@ -19,14 +19,11 @@ class MastermindTest {
 	void shouldMatchCombinationForOneColor() {
 		List<Color> combinationToFind = new ArrayList<Color>(Collections.singletonList(Color.BLUE));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Collections.singletonList(Color.BLUE));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(1, result.getWellPlacedColor());
 	}
 
@@ -34,14 +31,11 @@ class MastermindTest {
 	void shouldNotMatchCombinationForOneColor() {
 		List<Color> combinationToFind = Collections.singletonList(Color.BLUE);
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = Collections.singletonList(Color.RED);
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(0, result.getWellPlacedColor());
 	}
 
@@ -49,14 +43,11 @@ class MastermindTest {
 	void shouldMatchCombinationForTwoColors() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.BLUE, Color.RED));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.BLUE, Color.RED));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(2, result.getWellPlacedColor());
 	}
 
@@ -64,14 +55,11 @@ class MastermindTest {
 	void shouldMatchOnlyOneColorForTwoColors() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.RED, Color.RED));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.BLUE, Color.RED));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(1, result.getWellPlacedColor());
 	}
 
@@ -79,14 +67,11 @@ class MastermindTest {
 	void shouldNotMatchCombinationForTwoColors() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.YELLOW));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.BLUE, Color.RED));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(0, result.getWellPlacedColor());
 	}
 
@@ -94,14 +79,11 @@ class MastermindTest {
 	void shouldMatchCombinationForThreeColors() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.YELLOW, Color.YELLOW));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.YELLOW, Color.YELLOW));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(3, result.getWellPlacedColor());
 	}
 
@@ -109,14 +91,11 @@ class MastermindTest {
 	void shouldMatchOnlyTwoColorForThreeColors() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.GREEN, Color.YELLOW));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.YELLOW, Color.YELLOW));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(2, result.getWellPlacedColor());
 	}
 
@@ -124,14 +103,11 @@ class MastermindTest {
 	void shouldMatchOnlyOneColorForThreeColors() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.GREEN, Color.YELLOW));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.YELLOW, Color.GREEN));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(1, result.getWellPlacedColor());
 	}
 
@@ -139,14 +115,11 @@ class MastermindTest {
 	void shouldNotMatchCombinationForThreeColors() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.BLUE, Color.BLUE, Color.BLUE));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.YELLOW, Color.GREEN));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(0, result.getWellPlacedColor());
 	}
 
@@ -154,14 +127,11 @@ class MastermindTest {
 	void shouldMisplacedOneColorForTwoColor() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.GREEN));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.YELLOW, Color.ORANGE));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(1, result.getMisplacedColor());
 	}
 
@@ -173,10 +143,8 @@ class MastermindTest {
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.YELLOW, Color.ORANGE));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(2, result.getMisplacedColor());
 	}
 
@@ -184,14 +152,11 @@ class MastermindTest {
 	void shouldMisplacedOneColorForThreeColor() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.YELLOW, Color.BLUE));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.YELLOW, Color.RED, Color.YELLOW));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(1, result.getMisplacedColor());
 	}
 
@@ -199,14 +164,11 @@ class MastermindTest {
 	void shouldMatchNoColorAndMisplacedOneColorForThreeColor() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.YELLOW, Color.BLUE));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.YELLOW, Color.RED, Color.YELLOW));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(0, result.getWellPlacedColor());
 		assertEquals(1, result.getMisplacedColor());
 	}
@@ -219,10 +181,8 @@ class MastermindTest {
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.YELLOW, Color.BLUE, Color.YELLOW));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(1, result.getWellPlacedColor());
 		assertEquals(2, result.getMisplacedColor());
 	}
@@ -231,14 +191,11 @@ class MastermindTest {
 	void shouldMatchAllColorForThreeSameColor() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.YELLOW, Color.YELLOW, Color.YELLOW));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.YELLOW, Color.YELLOW, Color.YELLOW));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(3, result.getWellPlacedColor());
 		assertEquals(0, result.getMisplacedColor());
 	}
@@ -251,10 +208,8 @@ class MastermindTest {
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.YELLOW, Color.BLUE, Color.RED));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(3, result.getWellPlacedColor());
 		assertEquals(0, result.getMisplacedColor());
 	}
@@ -263,14 +218,11 @@ class MastermindTest {
 	void shouldMisplacedAllColorForThreeColor() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.YELLOW, Color.BLUE, Color.RED));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.BLUE, Color.RED, Color.YELLOW));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(0, result.getWellPlacedColor());
 		assertEquals(3, result.getMisplacedColor());
 	}
@@ -279,14 +231,11 @@ class MastermindTest {
 	void shouldNotMatchandMisplacedForThreeColor() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.YELLOW, Color.YELLOW, Color.YELLOW));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.RED, Color.BLUE));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals(0, result.getWellPlacedColor());
 		assertEquals(0, result.getMisplacedColor());
 	}
@@ -295,14 +244,11 @@ class MastermindTest {
 	void shouldReturn1MatchAnd2MismatchString() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.BLUE, Color.RED));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.RED, Color.BLUE));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals("1 WELL_PLACED 2 MISPLACED", mastermind.displayStringResult(result));
 	}
 
@@ -310,14 +256,11 @@ class MastermindTest {
 	void shouldReturn1MatchAndZeroMismatchString() {
 		List<Color> combinationToFind = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.BLUE, Color.RED));
 
-		// given
 		Mastermind mastermind = new Mastermind(combinationToFind);
 		List<Color> combination = new ArrayList<Color>(Arrays.asList(Color.ORANGE, Color.YELLOW, Color.YELLOW));
 
-		// when quand on verifie combinaison couleur
 		GameResult result = mastermind.playTurn(combination);
 
-		// then couleur bien placée
 		assertEquals("1 WELL_PLACED 0 MISPLACED", mastermind.displayStringResult(result));
 	}
 }
