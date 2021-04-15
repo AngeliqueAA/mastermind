@@ -1,4 +1,4 @@
-package com.fr.main.mastermind;
+package com.fr.shared.mastermind;
 
 public enum ResultString {
 	MISPLACED, WELL_PLACED

@@ -1,4 +1,4 @@
-package com.fr.main.mastermind;
+package com.fr.logic.mastermind;
 
 public class GameResult {
 

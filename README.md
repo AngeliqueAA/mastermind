@@ -10,6 +10,7 @@ Welcome to the Mastermind java console mini-game.
 
 ### Improvement to add to the game: ###
 
+- Refacto the test case for more maintainability
 - Manage erros in user input -> for example, if the user enter letters instead of numbers, it will break the game.
 - Create a random combination to find at the start of every game -> today, it's a static combination 
 - Add the possibility tor the user to choose the number of color to guess -> today, it's a static three colors combination
